@@ -1,0 +1,65 @@
+---
+import "../../src/styles/global.css";
+
+const { title, pageTitle } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title}</title>
+  </head>
+
+  <body class="containGlobal">
+    <main class="contentContainer">
+      <header>
+        <p class="lesonLeyend">Inicial I - Lesson 1</p>
+      </header>
+      { 
+        pageTitle && <h2 class="pageTitle"> {pageTitle} </h2>
+      }
+
+      <slot />
+      <!-- Aquí se insertará el contenido de la página -->
+    </main>
+  </body>
+</html>
+
+<style>
+  .containGlobal {
+    display: flex;
+    justify-content: center;
+    padding-top: 10px;
+    min-height: 100vh;
+  }
+
+  .contentContainer {
+    width: 80%;
+    background-color: #ffffff;
+    padding: 1.5rem;
+    border-radius: 10px;
+    height: 100vh;
+  }
+
+  .lesonLeyend {
+    color: #197ccd;
+    font-weight: bold;
+    font-size: 16px;
+    font-family: Verdana;
+    text-align: end;
+  }
+
+  .pageTitle {
+    padding: 1rem 0rem;
+    color: #42504B;
+    margin: 10px 0 0;
+    font-size: 20px;
+    font-family: Tahoma;
+    font-weight: bold;
+    font-style: normal;
+    text-align: center;
+    background-color: #faf9f9;
+  }
+</style>
