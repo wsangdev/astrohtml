@@ -1,0 +1,129 @@
+---
+import axios from "axios";
+
+if( Astro.request.method === "POST" ) {
+  try {
+    const data = await Astro.request.formData();
+    const word = data.get("word")
+    const referencial = data.get("referencial")
+    const fonetic = data.get("referencial")
+    const translate = data.get("translate")
+    const type = data.get("type")
+    
+  } catch (error) {
+    if (error instanceof Error) {
+      console.error(error.message);
+    }
+  }
+}
+
+
+---
+
+<h2 style="text-align: center; font-family: sans-serif;">
+  Enviado data desde el admin para el Contenido
+</h2>
+
+<aside style="display: flex; gap:3rem; font-family:sans-serif;">
+  <article class="level">
+    <label for="" style="color: #585858;"> Seleccion Nivel: </label>
+    <select name="level">
+      <option value="A1"> Level A1 </option>
+      <option value="A2"> Level A2 </option>
+      <option value="B1"> Level B1 </option>
+      <option value="B2"> Level B2 </option>
+    </select>
+  </article>
+
+  <article class="subvelel">
+    <label for="" style="color: #585858;"> Seleccion SubNivel: </label>
+    <select name="level">
+      <option value="A1.1"> SubLevel A1.1 </option>
+      <option value="A1.2"> SubLevel A1.2 </option>
+      <option value="A1.3"> SubLevel A1.3 </option>
+      <option value="A1.4"> SubLevel A1.4 </option>
+      <option value="A1.5"> SubLevel A1.5 </option>
+      <option value="A1.6"> SubLevel A1.6 </option>
+    </select>
+  </article>
+
+  <article class="lesson">
+    <label for="" style="color: #585858;"> Seleccion Lesson: </label>
+    <select name="level">
+      <option value="A1.1"> Lesson 1 </option>
+      <option value="A1.2"> Lessson 2 </option>
+      <option value="A1.3"> Lesson 3 </option>
+      <option value="A1.4"> Lesson 4 </option>
+      <option value="A1.5"> Lesson 5 </option>
+    </select>
+  </article>
+
+  <article class="lesson">
+    <label for="" style="color: #585858;"> Seleccion Pagina: </label>
+    <select name="level">
+      <option value="A1.1"> Page 1 </option>
+      <option value="A1.2"> Page 2 </option>
+      <option value="A1.3"> Page 3 </option>
+      <option value="A1.4"> Page 4 </option>
+      <option value="A1.5"> Page 5 </option>
+      <option value="A1.1"> Page 6 </option>
+      <option value="A1.2"> Page 7 </option>
+      <option value="A1.3"> Page 8 </option>
+      <option value="A1.4"> Page 9 </option>
+      <option value="A1.5"> Page 10 </option>
+    </select>
+  </article>
+</aside>
+
+
+<form method="POST" >  
+  <br /><br />
+  <section>
+    <label for="word" style="color: #000000; font-weight:bold;"> Word: </label>
+    <input type="text" name="word" placeholder="text here " />
+  </section>
+  <br />
+  <section>
+    <label for="referencial" style="color: #598ae1; font-weight: bold;">
+      Referential pronunciation:
+    </label>
+    <input type="text" name="referencial" placeholder="text here " />
+  </section>
+  <br />
+  <section>
+    <label for="fonetic" style="color: #ff23ae; font-weight: bold;">
+      Phonetic transcription:
+    </label>
+    <input type="text" name="fonetic" placeholder="text here " />
+  </section>
+  <br />
+  <section>
+    <label for="translate" style="color: #6b6b6b; font-weight: bold;">
+      Translation:
+    </label>
+    <input type="text" name="translate" placeholder="text here " />
+  </section>
+  <br />
+  <article class="lesson">
+    <label for="type" style="color: #585858;"> Seleccion Lesson: </label>
+    <select name="type">
+      <option value="Vocabulary"> Vocabulary </option>
+      <option value="Comlete"> Comlete </option>
+      <option value="Images"> Images </option>
+    </select>
+  </article>
+  <br />
+  <button class="btnInput"> Save Word Text </button>
+  <br />
+</form>
+
+<style>
+  .btnInput {
+    background-color: #f3a107;
+    padding: 8px 16px;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+  }
+</style>
